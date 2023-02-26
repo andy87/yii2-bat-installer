@@ -5,7 +5,7 @@ chcp 65001
 
 IF NOT EXIST composer.phar (
 
-	echo ### Загрузка Composer...
+	echo [30m[44m ### Загрузка Composer... [0m
 
 	php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 
@@ -17,29 +17,29 @@ IF NOT EXIST composer.phar (
 
 ) ELSE (
 
-	echo ### `composer.phar` уже установлен...
+	echo [30m[42m ### `composer.phar` уже установлен... [0m
 )
 
 IF NOT EXIST yii (
 
-	echo ### Установка Yii2 advanced...
+	echo [30m[44m ### Установка Yii2 advanced... [0m
 
 	php composer.phar create-project --prefer-dist yiisoft/yii2-app-advanced yii
 
 ) ELSE (
 
-	echo ### `create-projec` уже был выполнен...
+	echo [30m[42m ### `create-projec` уже был выполнен... [0m
 )
 
 IF NOT EXIST "%~dp0/yii/common/config/main-local.php" (
 
-	echo ### Выполнение команды init...
+	echo [30m[44m ### Выполнение команды init... [0m
 
   	cd yii && php init --env=Development --overwrite=All
-  	
+
 ) ELSE (
 
-	echo ### `init` уже был выполнен...
+	echo [30m[42m ### `init` уже был выполнен... [0m
 )
 
 echo Повелитель! Укажите имя проекта:
