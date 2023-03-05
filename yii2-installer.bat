@@ -2,6 +2,7 @@
 setlocal
 
 chcp 65001
+setlocal enableextensions
 
 IF NOT EXIST composer.phar (
 
@@ -51,31 +52,31 @@ set /p db_name=
 echo ### Обновляем файл конфигурации common\config\main-local ...
 
 set "file=%~dp0yii\common\config\main-local.php"
-powershell -Command "(gc '%file%') -replace 'yii2advanced', '%db_name%' | Out-File '%file%'"
+powershell -Command "(gc '%file%') -replace 'yii2advanced', '%db_name%' | Out-File '%file%' -Encoding UTF8 -NoBOM"
 
 echo ### Обновляем файл конфигурации backend\config\main ...
 
 set "file=%~dp0yii\backend\config\main.php"
 set "replace=app-%project_name%-backend"
-powershell -Command "(gc '%file%') -replace 'app-backend', '%replace%' | Out-File '%file%'"
+powershell -Command "(gc '%file%') -replace 'app-backend', '%replace%' | Out-File '%file%' -Encoding UTF8 -NoBOM"
 
 set "replace=app-%project_name%-backend-csrf"
-powershell -Command "(gc '%file%') -replace '_csrf-backend', '%replace%' | Out-File '%file%'"
+powershell -Command "(gc '%file%') -replace '_csrf-backend', '%replace%' | Out-File '%file%' -Encoding UTF8 -NoBOM"
 
 set "replace=app-%project_name%-backend-session"
-powershell -Command "(gc '%file%') -replace 'advanced-backend', '%replace%' | Out-File '%file%'"
+powershell -Command "(gc '%file%') -replace 'advanced-backend', '%replace%' | Out-File '%file%' -Encoding UTF8 -NoBOM"
 
 echo ### Обновляем файл конфигурации frontend\config\main ...
 	
 set "file=%~dp0yii\frontend\config\main.php"
 set "replace=app-%project_name%-frontend"
-powershell -Command "(gc '%file%') -replace 'app-frontend', '%replace%' | Out-File '%file%'"
+powershell -Command "(gc '%file%') -replace 'app-frontend', '%replace%' | Out-File '%file%' -Encoding UTF8 -NoBOM"
 
 set "replace=app-%project_name%-frontend-csrf"
-powershell -Command "(gc '%file%') -replace '_csrf-frontend', '%replace%' | Out-File '%file%'"
+powershell -Command "(gc '%file%') -replace '_csrf-frontend', '%replace%' | Out-File '%file%' -Encoding UTF8 -NoBOM"
 
 set "replace=app-%project_name%-frontend-session"
-powershell -Command "(gc '%file%') -replace 'advanced-frontend', '%replace%' | Out-File '%file%'"
+powershell -Command "(gc '%file%') -replace 'advanced-frontend', '%replace%' | Out-File '%file%' -Encoding UTF8 -NoBOM"
 
 echo Готово.
 
