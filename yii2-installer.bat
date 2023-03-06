@@ -52,37 +52,37 @@ set /p db_name=
 echo ### Обновляем файл конфигурации common\config\main-local ...
 
 set "file=%~dp0yii\common\config\main-local.php"
-powershell -Command "(gc '%file%') -replace 'yii2advanced', '%db_name%' | Out-File '%file%' -Encoding UTF8 -NoBOM"
+powershell -Command "(gc '%file%') -replace 'yii2advanced', '%db_name%' | Set-Content '%file%' -Encoding UTF8"
 
 echo ### Обновляем файл конфигурации backend\config\main ...
 
 set "file=%~dp0yii\backend\config\main.php"
 set "replace=app-%project_name%-backend"
-powershell -Command "(gc '%file%') -replace 'app-backend', '%replace%' | Out-File '%file%' -Encoding UTF8 -NoBOM"
+powershell -Command "(gc '%file%') -replace 'app-backend', '%replace%' | Set-Content '%file%' -Encoding UTF8"
 
 set "replace=app-%project_name%-backend-csrf"
-powershell -Command "(gc '%file%') -replace '_csrf-backend', '%replace%' | Out-File '%file%' -Encoding UTF8 -NoBOM"
+powershell -Command "(gc '%file%') -replace '_csrf-backend', '%replace%' | Set-Content '%file%' -Encoding UTF8"
 
 set "replace=_identity-%project_name%-backend"
-powershell -Command "(gc '%file%') -replace '_identity-backend', '%replace%' | Out-File '%file%' -Encoding UTF8 -NoBOM"
+powershell -Command "(gc '%file%') -replace '_identity-backend', '%replace%' | Set-Content '%file%' -Encoding UTF8"
 
 set "replace=app-%project_name%-backend-session"
-powershell -Command "(gc '%file%') -replace 'advanced-backend', '%replace%' | Out-File '%file%' -Encoding UTF8 -NoBOM"
+powershell -Command "(gc '%file%') -replace 'advanced-backend', '%replace%' | Set-Content '%file%' -Encoding UTF8"
 
 echo ### Обновляем файл конфигурации frontend\config\main ...
 	
 set "file=%~dp0yii\frontend\config\main.php"
 set "replace=app-%project_name%-frontend"
-powershell -Command "(gc '%file%') -replace 'app-frontend', '%replace%' | Out-File '%file%' -Encoding UTF8 -NoBOM"
+powershell -Command "(gc '%file%') -replace 'app-frontend', '%replace%' | Set-Content '%file%' -Encoding UTF8"
 
 set "replace=app-%project_name%-frontend-csrf"
-powershell -Command "(gc '%file%') -replace '_csrf-frontend', '%replace%' | Out-File '%file%' -Encoding UTF8 -NoBOM"
+powershell -Command "(gc '%file%') -replace '_csrf-frontend', '%replace%' | Set-Content '%file%' -Encoding UTF8"
 
 set "replace=_identity-%project_name%-frontend"
-powershell -Command "(gc '%file%') -replace '_identity-frontend', '%replace%' | Out-File '%file%' -Encoding UTF8 -NoBOM"
+powershell -Command "(gc '%file%') -replace '_identity-frontend', '%replace%' | Set-Content '%file%' -Encoding UTF8"
 
 set "replace=app-%project_name%-frontend-session"
-powershell -Command "(gc '%file%') -replace 'advanced-frontend', '%replace%' | Out-File '%file%' -Encoding UTF8 -NoBOM"
+powershell -Command "(gc '%file%') -replace 'advanced-frontend', '%replace%' | Set-Content '%file%' -Encoding UTF8"
 
 echo Готово.
 
