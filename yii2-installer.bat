@@ -70,7 +70,7 @@ set "replace=app-%project_name%-backend-session"
 powershell -Command "(gc '%file%') -replace 'advanced-backend', '%replace%' | Set-Content '%file%' -Encoding UTF8"
 
 echo ### Обновляем файл конфигурации frontend\config\main ...
-	
+
 set "file=%~dp0yii\frontend\config\main.php"
 set "replace=app-%project_name%-frontend"
 powershell -Command "(gc '%file%') -replace 'app-frontend', '%replace%' | Set-Content '%file%' -Encoding UTF8"
@@ -86,4 +86,4 @@ powershell -Command "(gc '%file%') -replace 'advanced-frontend', '%replace%' | S
 
 echo Готово.
 
-pause	
+pause
