@@ -12,3 +12,6 @@
    * csrfParam
    * identityCookie['name']
    * session['name']
+
+Зависимости:
+ * php в PATH
